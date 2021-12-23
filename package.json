@@ -1,0 +1,29 @@
+{
+  "name": "my",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@preconstruct/cli": "^2.1.5"
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ],
+    "globals": {
+      "a": "My.a",
+      "My": "My"
+    }
+  },
+  "scripts": {
+    "postinstall": "preconstruct dev",
+    "build": "preconstruct build",
+    "release": "preconstruct build && yarn publish:packages",
+    "fix": "preconstruct fix"
+  }
+}
